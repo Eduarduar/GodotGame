@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://68gawk40v6xi"]
+
+[ext_resource type="Texture2D" uid="uid://dwdxhilndxbn" path="res://utils/plataform/tile/tile_center.png" id="1_qgpr3"]
+[ext_resource type="Texture2D" uid="uid://byy5rfvivs33y" path="res://utils/plataform/tile/tile_left.png" id="2_q5yod"]
+[ext_resource type="Texture2D" uid="uid://cku1ahmf6m20s" path="res://utils/plataform/tile/tile_right.png" id="3_yxmiw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y88fk"]
+size = Vector2(2241, 160)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="TileCenter" type="Sprite2D" parent="."]
+texture = ExtResource("1_qgpr3")
+
+[node name="TileLeft" type="Sprite2D" parent="."]
+position = Vector2(-961, 0)
+texture = ExtResource("2_q5yod")
+
+[node name="TileRight" type="Sprite2D" parent="."]
+position = Vector2(1120, 0)
+texture = ExtResource("3_yxmiw")
+
+[node name="TileCenter2" type="Sprite2D" parent="."]
+position = Vector2(960, 0)
+texture = ExtResource("1_qgpr3")
+
+[node name="TileCenter3" type="Sprite2D" parent="."]
+position = Vector2(-800, 0)
+texture = ExtResource("1_qgpr3")
+
+[node name="TileCenter4" type="Sprite2D" parent="."]
+position = Vector2(-640, 0)
+texture = ExtResource("1_qgpr3")
+
+[node name="TileCenter5" type="Sprite2D" parent="."]
+position = Vector2(800, 0)
+texture = ExtResource("1_qgpr3")
+
+[node name="TileCenter6" type="Sprite2D" parent="."]
+position = Vector2(640, 0)
+texture = ExtResource("1_qgpr3")
+
+[node name="TileCenter7" type="Sprite2D" parent="."]
+position = Vector2(480, 0)
+texture = ExtResource("1_qgpr3")
+
+[node name="TileCenter8" type="Sprite2D" parent="."]
+position = Vector2(320, 0)
+texture = ExtResource("1_qgpr3")
+
+[node name="TileCenter9" type="Sprite2D" parent="."]
+position = Vector2(-480, 0)
+texture = ExtResource("1_qgpr3")
+
+[node name="TileCenter10" type="Sprite2D" parent="."]
+position = Vector2(-320, 0)
+texture = ExtResource("1_qgpr3")
+
+[node name="TileCenter11" type="Sprite2D" parent="."]
+position = Vector2(160, 0)
+texture = ExtResource("1_qgpr3")
+
+[node name="TileCenter12" type="Sprite2D" parent="."]
+position = Vector2(-160, 0)
+texture = ExtResource("1_qgpr3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(80.5, 0)
+shape = SubResource("RectangleShape2D_y88fk")

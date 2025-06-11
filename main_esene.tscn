@@ -1,0 +1,184 @@
+[gd_scene load_steps=15 format=3 uid="uid://dtd7c5748bdb0"]
+
+[ext_resource type="PackedScene" uid="uid://68gawk40v6xi" path="res://plataforms/tile_large.tscn" id="1_hr607"]
+[ext_resource type="PackedScene" uid="uid://dkgp2micx04aw" path="res://personaje/personaje.tscn" id="2_m0t2t"]
+[ext_resource type="PackedScene" uid="uid://m4n4wya62po3" path="res://plataforms/tile_transfer_3.tscn" id="3_cqybk"]
+[ext_resource type="PackedScene" uid="uid://c7t5obvdml1wv" path="res://personaje/boss.tscn" id="4_fbbyo"]
+[ext_resource type="PackedScene" uid="uid://qag4hwkrk6g6" path="res://plataforms/tile_3.tscn" id="4_onii1"]
+[ext_resource type="PackedScene" uid="uid://ci7h85ex63kr" path="res://objects/barrel.tscn" id="4_xsl28"]
+[ext_resource type="Script" uid="uid://caoj2c4ly72lr" path="res://Camera2d.cs" id="5_rybb0"]
+[ext_resource type="Texture2D" uid="uid://dt0rcrigbjxdt" path="res://utils/figures/tile_cloud.png" id="7_0cvk5"]
+[ext_resource type="PackedScene" uid="uid://byil1hj2cqpv8" path="res://UI/Interface.tscn" id="8_gvvdy"]
+[ext_resource type="Script" uid="uid://cp86ucgtfb67p" path="res://GameController.cs" id="9_qri3k"]
+
+[sub_resource type="Animation" id="Animation_qri3k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gvvdy"]
+resource_name = "wait"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.566667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5125, 1.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xsl28"]
+_data = {
+&"RESET": SubResource("Animation_qri3k"),
+&"await": SubResource("Animation_gvvdy")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cvk5"]
+size = Vector2(99.4857, 91.0129)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Estructuras" type="Node2D" parent="."]
+
+[node name="StaticBody2D" parent="Estructuras" instance=ExtResource("1_hr607")]
+position = Vector2(2534.69, 2045)
+rotation = -0.168657
+
+[node name="StaticBody2D2" parent="Estructuras" instance=ExtResource("3_cqybk")]
+position = Vector2(2978.69, 1495)
+rotation = 0.120621
+
+[node name="StaticBody2D3" parent="Estructuras" instance=ExtResource("3_cqybk")]
+position = Vector2(1553.69, 1322.38)
+rotation = 0.120621
+
+[node name="StaticBody2D4" parent="Estructuras" instance=ExtResource("3_cqybk")]
+position = Vector2(2029, 1380)
+rotation = 0.120621
+
+[node name="StaticBody2D5" parent="Estructuras" instance=ExtResource("3_cqybk")]
+position = Vector2(2503.69, 1437.43)
+rotation = 0.120621
+
+[node name="StaticBody2D6" parent="Estructuras" instance=ExtResource("3_cqybk")]
+position = Vector2(3357.69, 895.56)
+rotation = -0.0872665
+
+[node name="StaticBody2D7" parent="Estructuras" instance=ExtResource("3_cqybk")]
+position = Vector2(1929.69, 1020.5)
+rotation = -0.0872665
+
+[node name="StaticBody2D8" parent="Estructuras" instance=ExtResource("3_cqybk")]
+position = Vector2(2404, 979)
+rotation = -0.0872665
+
+[node name="StaticBody2D9" parent="Estructuras" instance=ExtResource("3_cqybk")]
+position = Vector2(2880.69, 937.3)
+rotation = -0.0872665
+
+[node name="StaticBody2D14" parent="Estructuras" instance=ExtResource("4_onii1")]
+position = Vector2(1081.54, 427.53)
+
+[node name="StaticBody2D10" parent="Estructuras" instance=ExtResource("3_cqybk")]
+position = Vector2(2979, 588.62)
+rotation = 0.120621
+
+[node name="StaticBody2D11" parent="Estructuras" instance=ExtResource("3_cqybk")]
+position = Vector2(1554, 416)
+rotation = 0.120621
+
+[node name="StaticBody2D12" parent="Estructuras" instance=ExtResource("3_cqybk")]
+position = Vector2(2029.31, 473.62)
+rotation = 0.120621
+
+[node name="StaticBody2D13" parent="Estructuras" instance=ExtResource("3_cqybk")]
+position = Vector2(2504, 531.05)
+rotation = 0.120621
+
+[node name="Barriles" type="Node2D" parent="."]
+
+[node name="Barril" parent="Barriles" instance=ExtResource("4_xsl28")]
+position = Vector2(1445, 1067)
+
+[node name="Barril2" parent="Barriles" instance=ExtResource("4_xsl28")]
+position = Vector2(2136, 312)
+
+[node name="Barril3" parent="Barriles" instance=ExtResource("4_xsl28")]
+position = Vector2(2747, 384)
+
+[node name="Barril4" parent="Barriles" instance=ExtResource("4_xsl28")]
+position = Vector2(3495, 707)
+
+[node name="Barril5" parent="Barriles" instance=ExtResource("4_xsl28")]
+position = Vector2(2402, 771)
+
+[node name="Barril6" parent="Barriles" instance=ExtResource("4_xsl28")]
+position = Vector2(2368, 1231)
+
+[node name="Barril7" parent="Barriles" instance=ExtResource("4_xsl28")]
+position = Vector2(3412, 1364)
+
+[node name="Personaje" parent="." instance=ExtResource("2_m0t2t")]
+position = Vector2(1756, 1942)
+collision_layer = 2
+collision_mask = 5
+
+[node name="Boss" parent="." instance=ExtResource("4_fbbyo")]
+position = Vector2(1205, 256)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("ObjectToFollow")]
+position = Vector2(2029, 1911)
+zoom = Vector2(0.34, 0.34)
+limit_left = 282
+limit_top = -482
+limit_right = 3747
+limit_bottom = 2918
+script = ExtResource("5_rybb0")
+ObjectToFollow = NodePath("../Personaje")
+
+[node name="Start" type="Sprite2D" parent="."]
+position = Vector2(1769.5, 197)
+texture = ExtResource("7_0cvk5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Start"]
+libraries = {
+&"": SubResource("AnimationLibrary_xsl28")
+}
+
+[node name="AreaStart" type="Area2D" parent="Start"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start/AreaStart"]
+position = Vector2(0, 2.43784)
+shape = SubResource("RectangleShape2D_0cvk5")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("8_gvvdy")]
+
+[node name="GameController" type="Node2D" parent="."]
+script = ExtResource("9_qri3k")
+
+[node name="Timer" type="Timer" parent="GameController"]
+autostart = true
+
+[connection signal="PlayerFail" from="Personaje" to="GameController" method="onPlayerFail"]
+[connection signal="PlayerHit" from="Personaje" to="GameController" method="onPlayerHit"]
+[connection signal="body_entered" from="Start/AreaStart" to="GameController" method="onGameVictory"]
+[connection signal="LifeUpdate" from="GameController" to="CanvasLayer" method="onUpdateLifes"]
+[connection signal="TimerUpdate" from="GameController" to="CanvasLayer" method="onTimerUpdate"]
+[connection signal="timeout" from="GameController/Timer" to="GameController" method="onTimerTimeout"]

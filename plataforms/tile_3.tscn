@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://qag4hwkrk6g6"]
+
+[ext_resource type="Texture2D" uid="uid://dwdxhilndxbn" path="res://utils/plataform/tile/tile_center.png" id="1_gfj5x"]
+[ext_resource type="Texture2D" uid="uid://byy5rfvivs33y" path="res://utils/plataform/tile/tile_left.png" id="2_t7lax"]
+[ext_resource type="Texture2D" uid="uid://cku1ahmf6m20s" path="res://utils/plataform/tile/tile_right.png" id="3_ak772"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y88fk"]
+size = Vector2(479, 160)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="TileCenter" type="Sprite2D" parent="."]
+texture = ExtResource("1_gfj5x")
+
+[node name="TileLeft" type="Sprite2D" parent="."]
+position = Vector2(-160, 0)
+texture = ExtResource("2_t7lax")
+
+[node name="TileRight" type="Sprite2D" parent="."]
+position = Vector2(160, 0)
+texture = ExtResource("3_ak772")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_y88fk")

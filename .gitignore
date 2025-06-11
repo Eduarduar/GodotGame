@@ -1,0 +1,39 @@
+# Carpetas generadas automáticamente por Godot
+.import/
+.godot/
+
+# Configuraciones de exportación (opcional)
+export_presets.cfg
+export.cfg
+
+# Archivos temporales o de respaldo
+*.tmp
+*.bak
+*.old
+*.orig
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de lock o estado que no deben subirse
+*.log
+*.lock
+
+# Archivos de usuarios o editores externos
+*.swp
+*.swo
+*~
+
+# VSCode (si lo usas)
+.vscode/
+
+# Archivos de Godot para caché de navegación
+navigation_cache.*
+
+# Archivos creados por Godot 4.x para debug y otras tareas
+*.translation_metadata
+
+# Git
+.git/

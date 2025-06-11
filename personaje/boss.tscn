@@ -1,0 +1,210 @@
+[gd_scene load_steps=10 format=3 uid="uid://c7t5obvdml1wv"]
+
+[ext_resource type="Script" uid="uid://dw6mr6oas7ll1" path="res://personaje/Boss.cs" id="1_618ko"]
+[ext_resource type="Texture2D" uid="uid://bgli838x4w5a8" path="res://utils/figures/purple/purple_body_square.png" id="2_xahbi"]
+[ext_resource type="Texture2D" uid="uid://5sxm4twq0vx" path="res://utils/face/face_f.png" id="3_qn4ng"]
+[ext_resource type="Texture2D" uid="uid://jtf8ya14cf0b" path="res://utils/hands/purple/purple_hand_open.png" id="4_piijm"]
+[ext_resource type="Texture2D" uid="uid://54u43vpyo2h1" path="res://utils/figures/red/red_body_circle.png" id="5_yoivn"]
+
+[sub_resource type="Animation" id="Animation_gdrp8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PurpleBodySquare/PurpleHandOpen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(85, 40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PurpleBodySquare:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PurpleBodySquare/PurpleHandOpen:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PurpleBodySquare/PurpleHandOpen/RedBodyCircle:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_lwu40"]
+resource_name = "lanzar"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PurpleBodySquare:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.866667, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(-1, 1), Vector2(-1, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PurpleBodySquare/PurpleHandOpen:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8, 1.30065),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(85, 40), Vector2(188, 36), Vector2(24, -167), Vector2(210, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PurpleBodySquare/PurpleHandOpen:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8, 1.30065),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [3.14159, 3.73243, 2.8447, 4.26885]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PurpleBodySquare/PurpleHandOpen/RedBodyCircle:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.26667, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"LaunchBarrel"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_qma7d"]
+resource_name = "reposo"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PurpleBodySquare/PurpleHandOpen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.55),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(85, 40), Vector2(87, 32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tw6b1"]
+_data = {
+&"RESET": SubResource("Animation_gdrp8"),
+&"lanzar": SubResource("Animation_lwu40"),
+&"reposo": SubResource("Animation_qma7d")
+}
+
+[node name="Boss" type="Node2D"]
+script = ExtResource("1_618ko")
+
+[node name="PurpleBodySquare" type="Sprite2D" parent="."]
+texture = ExtResource("2_xahbi")
+
+[node name="FaceF" type="Sprite2D" parent="PurpleBodySquare"]
+texture = ExtResource("3_qn4ng")
+
+[node name="PurpleHandOpen" type="Sprite2D" parent="PurpleBodySquare"]
+position = Vector2(85, 40)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("4_piijm")
+
+[node name="RedBodyCircle" type="Sprite2D" parent="PurpleBodySquare/PurpleHandOpen"]
+visible = false
+position = Vector2(-38, 22)
+rotation = 3.14159
+scale = Vector2(0.3875, -0.4)
+texture = ExtResource("5_yoivn")
+
+[node name="Barriles" type="Node2D" parent="."]
+position = Vector2(-414, 152)
+
+[node name="RedBodyCircle" type="Sprite2D" parent="Barriles"]
+position = Vector2(206, -101)
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("5_yoivn")
+
+[node name="RedBodyCircle2" type="Sprite2D" parent="Barriles"]
+position = Vector2(128, -145)
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("5_yoivn")
+
+[node name="RedBodyCircle3" type="Sprite2D" parent="Barriles"]
+position = Vector2(178, -144)
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("5_yoivn")
+
+[node name="RedBodyCircle4" type="Sprite2D" parent="Barriles"]
+position = Vector2(93, -101)
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("5_yoivn")
+
+[node name="RedBodyCircle5" type="Sprite2D" parent="Barriles"]
+position = Vector2(150, -98)
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("5_yoivn")
+
+[node name="AnimationBoss" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tw6b1")
+}
+autoplay = "reposo"
+
+[node name="TriggerBarril" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+ignore_time_scale = true
+
+[connection signal="timeout" from="TriggerBarril" to="." method="OnTimerTimeout"]

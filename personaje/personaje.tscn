@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkgp2micx04aw"]
+
+[ext_resource type="Texture2D" uid="uid://bm8vrphv1e0ok" path="res://utils/figures/blue/blue_body_square.png" id="1_diry1"]
+[ext_resource type="Script" uid="uid://bmen10j7w7egm" path="res://personaje/Personaje.cs" id="1_i8xir"]
+[ext_resource type="Texture2D" uid="uid://bjbws70gaqpbm" path="res://utils/face/face_c.png" id="2_i8xir"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_diry1"]
+size = Vector2(159, 161)
+
+[node name="Personaje" type="CharacterBody2D"]
+script = ExtResource("1_i8xir")
+Gravity = 1800.0
+JumpSpeed = 1200.0
+Speed = 150.0
+
+[node name="textura" type="Sprite2D" parent="."]
+texture = ExtResource("1_diry1")
+
+[node name="FaceC" type="Sprite2D" parent="textura"]
+scale = Vector2(1.11864, 1.33333)
+texture = ExtResource("2_i8xir")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_diry1")

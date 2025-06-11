@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci7h85ex63kr"]
+
+[ext_resource type="Texture2D" uid="uid://54u43vpyo2h1" path="res://utils/figures/red/red_body_circle.png" id="1_hksn3"]
+[ext_resource type="Script" uid="uid://ererof7afq67" path="res://objects/Barrel.cs" id="1_ru5ch"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ru5ch"]
+radius = 31.0
+
+[node name="Barril" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 7
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_ru5ch")
+
+[node name="Texture" type="Sprite2D" parent="."]
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("1_hksn3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ru5ch")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
